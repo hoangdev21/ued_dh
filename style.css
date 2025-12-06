@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tính Điểm Đại Học</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
         * {
             margin: 0;
             padding: 0;
@@ -63,10 +53,17 @@
             /* Ẩn thanh cuộn cho container */
             scrollbar-width: none;
             -ms-overflow-style: none;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 40px);
         }
 
         .container::-webkit-scrollbar {
             display: none;
+        }
+
+        .main-content {
+            flex: 1;
         }
 
         .header {
@@ -78,15 +75,87 @@
             overflow: hidden;
         }
 
-        .header::before {
-            content: '';
+        /* Logo styling */
+        .logo-container {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: float 6s ease-in-out infinite;
+            top: 20px;
+            right: 30px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Logo styling cho center */
+        .logo-container-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 24px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 24px;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .logo-container-center:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #6366f1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .logo-fallback {
+            font-size: 16px;
+            font-weight: 700;
+            color: #6366f1;
+        }
+
+        .brand-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            opacity: 0.95;
         }
 
         @keyframes float {
@@ -1023,6 +1092,23 @@
             .summary-value {
                 font-size: 1.2em;
             }
+            
+            /* Logo center responsive cho mobile */
+            .logo-container-center {
+                padding: 8px 16px;
+                margin-bottom: 16px;
+                max-width: 220px;
+            }
+            
+            .logo-container-center .logo {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+            
+            .logo-container-center .brand-text {
+                font-size: 12px;
+            }
         }
 
         @media (max-width: 360px) {
@@ -1063,6 +1149,23 @@
             input, select {
                 padding: 8px;
                 font-size: 13px;
+            }
+            
+            /* Logo center responsive cho màn hình rất nhỏ */
+            .logo-container-center {
+                padding: 6px 12px;
+                margin-bottom: 12px;
+                max-width: 200px;
+            }
+            
+            .logo-container-center .logo {
+                width: 24px;
+                height: 24px;
+                font-size: 11px;
+            }
+            
+            .logo-container-center .brand-text {
+                font-size: 11px;
             }
         }
 
@@ -1235,400 +1338,302 @@
                 height: 8px;
                 border-width: 2.5px;
             }
+            
+            /* Logo responsive */
+            .logo-container {
+                top: 15px;
+                right: 20px;
+                padding: 6px 12px;
+            }
+            
+            .logo {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+            }
+            
+            .logo img {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .brand-text {
+                font-size: 12px;
+            }
+            
+            /* Logo center responsive */
+            .logo-container-center {
+                padding: 10px 20px;
+                margin-bottom: 20px;
+                max-width: 250px;
+            }
+            
+            .logo-container-center .logo {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            .logo-container-center .brand-text {
+                font-size: 14px;
+            }
+        }
+
+        /* Formula Section Styling */
+        .formula-container {
+            padding: 20px 0;
+        }
+
+        .formula-section {
+            margin-bottom: 32px;
+            padding: 24px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .formula-title {
+            color: #1e293b;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .formula-box {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
+        }
+
+        .formula-text {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .formula-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .formula-note {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .formula-note p {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .formula-note ul {
+            margin: 8px 0 0 16px;
+            padding: 0;
+        }
+
+        .formula-note li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        .example-box h4 {
+            color: #1e293b;
+            margin-bottom: 16px;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+
+        .example-content {
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .example-content p {
+            margin-bottom: 8px;
+        }
+
+        .example-content p:last-child {
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        .result-highlight {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        /* Ranking Grid */
+        .ranking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .ranking-item {
+            text-align: center;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .ranking-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .ranking-item.excellent {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        .ranking-item.good {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
+
+        .ranking-item.fair {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .ranking-item.average {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .ranking-item.weak {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        }
+
+        .ranking-item.poor {
+            background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+        }
+
+        .ranking-score {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .ranking-label {
+            font-size: 1em;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        /* Responsive cho Formula Section */
+        @media (max-width: 768px) {
+            .formula-section {
+                padding: 16px;
+                margin-bottom: 24px;
+            }
+            
+            .formula-title {
+                font-size: 1.1em;
+                margin-bottom: 16px;
+            }
+            
+            .formula-box {
+                padding: 16px;
+            }
+            
+            .formula-text {
+                font-size: 1em;
+            }
+            
+            .formula-note {
+                padding: 12px;
+            }
+            
+            .example-box {
+                padding: 16px;
+            }
+            
+            .ranking-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+            }
+            
+            .ranking-item {
+                padding: 12px;
+            }
+            
+            .ranking-score {
+                font-size: 1em;
+            }
+            
+            .ranking-label {
+                font-size: 0.9em;
+            }
         }
 
         @media (max-width: 480px) {
-            .back-to-top {
-                bottom: 15px;
-                right: 15px;
-                width: 45px;
-                height: 45px;
+            .formula-container {
+                padding: 10px 0;
             }
             
-            .back-to-top .arrow {
-                width: 16px;
-                height: 16px;
+            .formula-section {
+                padding: 12px;
+                margin-bottom: 16px;
             }
             
-            .back-to-top .arrow::before {
-                width: 2px;
-                height: 10px;
+            .formula-title {
+                font-size: 1em;
+                margin-bottom: 12px;
             }
             
-            .back-to-top .arrow::after {
-                width: 7px;
-                height: 7px;
-                border-width: 2px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🎓 Tính Điểm Đại Học</h1>
-            <p>Tính điểm trung bình và xếp loại học lực theo thang điểm 10 và 4</p>
-        </div>
-
-        <div class="content">
-            <!-- Bảng thang điểm -->
-            <div class="section">
-                <h2>📊 Bảng Quy Đổi Thang Điểm</h2>
-                <div class="grade-scale">
-                    <table class="grade-table">
-                        <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Thang 10</th>
-                                <th>Thang chữ</th>
-                                <th>Thang 4</th>
-                                <th>Trạng thái</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>Từ 9,5 đến 10,0</td><td>A+</td><td>4,0</td><td>Đạt</td></tr>
-                            <tr><td>2</td><td>Từ 8,5 đến 9,4</td><td>A</td><td>4,0</td><td>Đạt</td></tr>
-                            <tr><td>3</td><td>Từ 8,0 đến 8,4</td><td>B+</td><td>3,5</td><td>Đạt</td></tr>
-                            <tr><td>4</td><td>Từ 7,0 đến 7,9</td><td>B</td><td>3,0</td><td>Đạt</td></tr>
-                            <tr><td>5</td><td>Từ 6,5 đến 6,9</td><td>C+</td><td>2,5</td><td>Đạt</td></tr>
-                            <tr><td>6</td><td>Từ 5,5 đến 6,4</td><td>C</td><td>2,0</td><td>Đạt</td></tr>
-                            <tr><td>7</td><td>Từ 5,0 đến 5,4</td><td>D+</td><td>1,5</td><td>Đạt</td></tr>
-                            <tr><td>8</td><td>Từ 4,0 đến 4,9</td><td>D</td><td>1,0</td><td>Đạt</td></tr>
-                            <tr class="fail-row"><td>9</td><td>Dưới 4,0</td><td>F</td><td>0,0</td><td>Không đạt</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Nhập môn học -->
-            <div class="section">
-                <h2>📚 Nhập Thông Tin Môn Học</h2>
-                <div id="subjects"></div>
-                <div class="button-container">
-                    <button class="btn btn-primary" onclick="addSubject()">➕ Thêm Môn Học</button>
-                    <button class="btn btn-success" onclick="calculateGPA()">🧮 Tính Điểm</button>
-                </div>
-            </div>
-
-            <!-- Kết quả -->
-            <div id="result" style="display: none;">
-                <div class="result">
-                    <h3>📋 Kết Quả Tổng Hợp</h3>
-                    <div id="resultContent"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop">
-        <div class="ripple"></div>
-        <div class="arrow"></div>
-    </div>
-
-    <script>
-        let subjectCount = 0;
-        let subjects = [];
-
-        // Bảng quy đổi điểm
-        const gradeScale = [
-            { min: 9.5, max: 10.0, letter: 'A+', gpa4: 4.0 },
-            { min: 8.5, max: 9.49, letter: 'A', gpa4: 4.0 },
-            { min: 8.0, max: 8.49, letter: 'B+', gpa4: 3.5 },
-            { min: 7.0, max: 7.99, letter: 'B', gpa4: 3.0 },
-            { min: 6.5, max: 6.99, letter: 'C+', gpa4: 2.5 },
-            { min: 5.5, max: 6.49, letter: 'C', gpa4: 2.0 },
-            { min: 5.0, max: 5.49, letter: 'D+', gpa4: 1.5 },
-            { min: 4.0, max: 4.99, letter: 'D', gpa4: 1.0 },
-            { min: 0.0, max: 3.99, letter: 'F', gpa4: 0.0 }
-        ];
-
-        function convertToGPA4(score10) {
-            for (let grade of gradeScale) {
-                if (score10 >= grade.min && score10 <= grade.max) {
-                    return grade.gpa4;
-                }
-            }
-            return 0.0;
-        }
-
-        function getLetterGrade(score10) {
-            for (let grade of gradeScale) {
-                if (score10 >= grade.min && score10 <= grade.max) {
-                    return grade.letter;
-                }
-            }
-            return 'F';
-        }
-
-        function getAcademicRank(gpa4) {
-            if (gpa4 >= 3.6) return 'Xuất Sắc';
-            if (gpa4 >= 3.2) return 'Giỏi';
-            if (gpa4 >= 2.5) return 'Khá';
-            if (gpa4 >= 2.0) return 'Trung Bình';
-            if (gpa4 >= 1.0) return 'Yếu';
-            return 'Kém';
-        }
-
-        function getAcademicRankClass(gpa4) {
-            if (gpa4 >= 3.6) return 'excellent';
-            if (gpa4 >= 3.2) return 'good';
-            if (gpa4 >= 2.5) return 'fair';
-            if (gpa4 >= 2.0) return 'average';
-            if (gpa4 >= 1.0) return 'weak';
-            return 'poor';
-        }
-
-        function addSubject() {
-            subjectCount++;
-            const subjectDiv = document.createElement('div');
-            subjectDiv.className = 'subject-item';
-            subjectDiv.id = `subject-${subjectCount}`;
-            
-            subjectDiv.innerHTML = `
-                <div class="subject-header">
-                    <span class="subject-name">Môn học ${subjectCount}</span>
-                    <button class="remove-btn" onclick="removeSubject(${subjectCount})">🗑️ Xóa</button>
-                </div>
-                
-                <div class="form-group">
-                    <label>Tên môn học:</label>
-                    <input type="text" id="name-${subjectCount}" placeholder="Nhập tên môn học">
-                </div>
-                
-                <div class="form-group">
-                    <label>Số tín chỉ:</label>
-                    <input type="number" id="credits-${subjectCount}" min="1" max="10" value="3">
-                </div>
-                
-                <div class="form-group">
-                    <label>Loại điểm chuyên cần:</label>
-                    <select id="attendanceType-${subjectCount}" onchange="updateAttendanceInputs(${subjectCount})">
-                        <option value="single">1 điểm chuyên cần</option>
-                        <option value="double">2 điểm chuyên cần</option>
-                    </select>
-                </div>
-                
-                <div class="score-inputs" id="scoreInputs-${subjectCount}">
-                    <div class="form-group">
-                        <label>Chuyên cần:</label>
-                        <input type="number" id="attendance-${subjectCount}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                    <div class="form-group">
-                        <label>Giữa kì:</label>
-                        <input type="number" id="midterm-${subjectCount}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                    <div class="form-group">
-                        <label>Cuối kì:</label>
-                        <input type="number" id="final-${subjectCount}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('subjects').appendChild(subjectDiv);
-        }
-
-        function updateAttendanceInputs(subjectId) {
-            const attendanceType = document.getElementById(`attendanceType-${subjectId}`).value;
-            const scoreInputsDiv = document.getElementById(`scoreInputs-${subjectId}`);
-            
-            if (attendanceType === 'double') {
-                scoreInputsDiv.innerHTML = `
-                    <div class="form-group">
-                        <label>Chuyên cần 1:</label>
-                        <input type="number" id="attendance1-${subjectId}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                    <div class="form-group">
-                        <label>Chuyên cần 2:</label>
-                        <input type="number" id="attendance2-${subjectId}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                    <div class="form-group">
-                        <label>Giữa kì:</label>
-                        <input type="number" id="midterm-${subjectId}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                    <div class="form-group">
-                        <label>Cuối kì:</label>
-                        <input type="number" id="final-${subjectId}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                `;
-            } else {
-                scoreInputsDiv.innerHTML = `
-                    <div class="form-group">
-                        <label>Chuyên cần:</label>
-                        <input type="number" id="attendance-${subjectId}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                    <div class="form-group">
-                        <label>Giữa kì:</label>
-                        <input type="number" id="midterm-${subjectId}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                    <div class="form-group">
-                        <label>Cuối kì:</label>
-                        <input type="number" id="final-${subjectId}" min="0" max="10" step="0.1" placeholder="0.0">
-                    </div>
-                `;
-            }
-        }
-
-        function removeSubject(subjectId) {
-            const subjectDiv = document.getElementById(`subject-${subjectId}`);
-            if (subjectDiv) {
-                subjectDiv.remove();
-            }
-        }
-
-        function calculateSubjectGPA(subjectId) {
-            const attendanceType = document.getElementById(`attendanceType-${subjectId}`).value;
-            const midterm = parseFloat(document.getElementById(`midterm-${subjectId}`).value) || 0;
-            const final = parseFloat(document.getElementById(`final-${subjectId}`).value) || 0;
-            
-            let attendanceScore = 0;
-            
-            if (attendanceType === 'double') {
-                const attendance1 = parseFloat(document.getElementById(`attendance1-${subjectId}`).value) || 0;
-                const attendance2 = parseFloat(document.getElementById(`attendance2-${subjectId}`).value) || 0;
-                attendanceScore = (attendance1 + attendance2) / 2;
-            } else {
-                attendanceScore = parseFloat(document.getElementById(`attendance-${subjectId}`).value) || 0;
+            .formula-box {
+                padding: 12px;
             }
             
-            // Công thức: Chuyên cần x 0.2 + Giữa kì x 0.3 + Cuối kì x 0.5
-            const subjectGPA10 = attendanceScore * 0.2 + midterm * 0.3 + final * 0.5;
-            const subjectGPA4 = convertToGPA4(subjectGPA10);
-            
-            return {
-                gpa10: Math.round(subjectGPA10 * 10) / 10,
-                gpa4: subjectGPA4,
-                letterGrade: getLetterGrade(subjectGPA10)
-            };
-        }
-
-        function calculateGPA() {
-            const subjectDivs = document.querySelectorAll('.subject-item');
-            
-            if (subjectDivs.length === 0) {
-                alert('Vui lòng thêm ít nhất một môn học!');
-                return;
+            .formula-text {
+                font-size: 0.9em;
             }
             
-            let totalCredits = 0;
-            let totalGPA10 = 0;
-            let totalGPA4 = 0;
-            let resultHTML = '';
-            let subjectResults = [];
+            .example-box {
+                padding: 12px;
+            }
             
-            subjectDivs.forEach(div => {
-                const subjectId = div.id.split('-')[1];
-                const name = document.getElementById(`name-${subjectId}`).value || `Môn học ${subjectId}`;
-                const credits = parseInt(document.getElementById(`credits-${subjectId}`).value) || 3;
-                
-                const subjectGPA = calculateSubjectGPA(subjectId);
-                
-                totalCredits += credits;
-                totalGPA10 += subjectGPA.gpa10 * credits;
-                totalGPA4 += subjectGPA.gpa4 * credits;
-                
-                subjectResults.push({
-                    name: name,
-                    credits: credits,
-                    gpa10: subjectGPA.gpa10,
-                    gpa4: subjectGPA.gpa4,
-                    letterGrade: subjectGPA.letterGrade
-                });
-            });
+            .example-content {
+                font-size: 0.9em;
+            }
             
-            const overallGPA10 = Math.round((totalGPA10 / totalCredits) * 100) / 100;
-            const overallGPA4 = (totalGPA4 / totalCredits).toFixed(2);
-            const academicRank = getAcademicRank(overallGPA4);
-            const academicRankClass = getAcademicRankClass(overallGPA4);
+            .ranking-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 8px;
+            }
             
-            // Hiển thị kết quả từng môn
-            resultHTML += '<h4>📊 Chi Tiết Điểm Từng Môn:</h4>';
-            resultHTML += '<table class="subjects-table">';
-            resultHTML += `
-                <thead>
-                    <tr>
-                        <th>Môn học</th>
-                        <th>Hệ 10</th>
-                        <th>Hệ 4</th>
-                        <th>Xếp loại</th>
-                    </tr>
-                </thead>
-                <tbody>
-            `;
+            .ranking-item {
+                padding: 10px;
+            }
             
-            subjectResults.forEach(subject => {
-                resultHTML += `
-                    <tr>
-                        <td class="subject-name-cell">
-                            ${subject.name}
-                            <span class="credits-badge">${subject.credits} TC</span>
-                        </td>
-                        <td class="grade-10-cell">${subject.gpa10}</td>
-                        <td class="grade-4-cell">${subject.gpa4}</td>
-                        <td class="letter-grade-cell">
-                            <span class="letter-grade-badge">${subject.letterGrade}</span>
-                        </td>
-                    </tr>
-                `;
-            });
+            .ranking-score {
+                font-size: 0.9em;
+            }
             
-            resultHTML += '</tbody></table>';
-            
-            resultHTML += '<div class="summary-section">';
-            resultHTML += '<h4>🎯 Kết Quả Tổng Hợp:</h4>';
-            resultHTML += '<div class="summary-grid">';
-            resultHTML += `
-                <div class="summary-item">
-                    <div class="summary-label">Tổng số tín chỉ</div>
-                    <div class="summary-value">${totalCredits}</div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-label">Điểm TB hệ 10</div>
-                    <div class="summary-value">${overallGPA10.toFixed(2)}</div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-label">Điểm TB hệ 4</div>
-                    <div class="summary-value">${overallGPA4}</div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-label">Xếp loại học lực</div>
-                    <div class="academic-rank ${academicRankClass}">${academicRank}</div>
-                </div>
-            `;
-            resultHTML += '</div></div>';
-            
-            document.getElementById('resultContent').innerHTML = resultHTML;
-            document.getElementById('result').style.display = 'block';
-            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+            .ranking-label {
+                font-size: 0.8em;
+            }
         }
-
-        // Thêm môn học đầu tiên khi trang tải
-        window.onload = function() {
-            addSubject();
-            initBackToTop();
-        };
-
-        // Back to Top functionality
-        function initBackToTop() {
-            const backToTopButton = document.getElementById('backToTop');
-            
-            // Show/hide button on scroll
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            });
-            
-            // Smooth scroll to top
-            backToTopButton.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    </script>
-</body>
-</html>
